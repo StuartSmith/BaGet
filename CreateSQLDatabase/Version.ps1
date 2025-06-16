@@ -1,0 +1,2 @@
+$ProductVersion = "1.0.0.0"; # Value that controls the file When  signing in .net
+$FileVersion    = "1.0.3.0"; # Version of the file being created. MSI installers look at this to know if a file is newer etc. Also the version of hte Nuget package
