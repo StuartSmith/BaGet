@@ -45,7 +45,7 @@ $Solutions += "..\BaGet.sln"
 Task CreateDatabase -depends  Remove-LocalDbInstance, `
                               Remove-LocalDbMdfLdfFiles,  
                               New-LocalDbInstance,  
-                              Remove-PreviousDb, `
+                              #Remove-PreviousDb, `
                               New-BagetDb,
                               Add-NetworkServiceToBagetDb
 

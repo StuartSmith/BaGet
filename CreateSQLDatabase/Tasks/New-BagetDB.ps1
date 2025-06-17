@@ -26,6 +26,7 @@ ON (NAME = N'$databaseName', FILENAME = N'$mdf'),
 
 
    $connection.Open()
+   Write-host " `nInvoking SQL: `n`n $SQL `n"
    $command.ExecuteNonQuery()
    $connection.Close()
    

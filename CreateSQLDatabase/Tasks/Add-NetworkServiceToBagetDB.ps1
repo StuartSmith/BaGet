@@ -22,6 +22,9 @@ END
 
 # Connect to the LocalDB instance
    $connectionString = "Server=$SqlServerInstance;Integrated Security=true;"
+   Write-host "----------------Connection String-------------------"
+   Write-host "$connectionString"
+   Write-host "----------------------------------------------------"
    $connection = New-Object System.Data.SqlClient.SqlConnection $connectionString
    $command = $connection.CreateCommand()
    
@@ -42,6 +45,7 @@ SET NOCOUNT ON
 SET XACT_ABORT ON
 "@
 
+   Write-host " `nInvoking SQL: `n $SQL `n"
    $command.CommandText = $sql
    $command.ExecuteNonQuery()
 #--======================
@@ -62,7 +66,7 @@ else
 		 PRINT 'Login NT AUTHORITY\NETWORK SERVICE already exists';
 	end
 "@
-
+   Write-host "Invoking SQL: `n`n $SQL `n"
    $command.CommandText = $sql
    $command.ExecuteNonQuery()
 
@@ -84,6 +88,7 @@ ELSE
 	end
 "@
 
+   Write-host " `nInvoking SQL: `n`n $SQL `n"
    $command.CommandText = $sql
    $command.ExecuteNonQuery()
 
@@ -105,7 +110,7 @@ else
 	end
 
 "@
-
+   Write-host " `nInvoking SQL: `n`n $SQL `n"
    $command.CommandText = $sql
    $command.ExecuteNonQuery()
 
@@ -113,7 +118,7 @@ else
 USE [$databaseName];
 ALTER ROLE db_owner ADD MEMBER [NT AUTHORITY\NETWORK SERVICE];
 "@
-
+   Write-host " `nInvoking SQL: `n`n $SQL `n"
    $command.CommandText = $sql
    $command.ExecuteNonQuery()
 
@@ -122,7 +127,7 @@ ALTER ROLE db_owner ADD MEMBER [NT AUTHORITY\NETWORK SERVICE];
 USE [$databaseName];
 ALTER ROLE db_datareader ADD MEMBER [NT AUTHORITY\NETWORK SERVICE];
 "@
-
+   Write-host " `nInvoking SQL: `n`n $SQL `n"
    $command.CommandText = $sql
    $command.ExecuteNonQuery()
 
